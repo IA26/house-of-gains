@@ -2,14 +2,10 @@
 
 one:
   name: MyString
-<<<<<<< HEAD
-  address: MyString
+  age: 1
+  bio: MyText
 
 two:
   name: MyString
-  address: MyString
-=======
-
-two:
-  name: MyString
->>>>>>> d100e9ac8a67fe495030e632c56ac9290ba7acc0
+  age: 1
+  bio: MyText
