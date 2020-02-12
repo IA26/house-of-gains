@@ -1,0 +1,10 @@
+<h1>Here are the gyms in your area!</h1>
+
+<ol>
+    <%  @gyms.each do |gym| %>
+        <h2><%= gym.name %></h2>    
+    
+        <%= link_to "View gym", gym_path(gym) %>
+        <p> </p>
+    <% end %>
+</ol>

@@ -1,0 +1,5 @@
+<%= form_for @subscription do |f| method: post %>
+    <%= f.label :gym_id %>
+    <%= f.collection_select :gym_id, Gym.all, :id, :name %>
+    <%= f.submit "Subscribe" %>
+<% end %>
