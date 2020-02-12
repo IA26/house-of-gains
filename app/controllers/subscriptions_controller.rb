@@ -6,7 +6,7 @@ class SubscriptionsController < ApplicationController
 
     def create 
         @subscription = Subscription.create(subscription_params)
-        redirect_to new_user_path
+        redirect_to user_path(@subscription.user)
     end 
 
     private 
