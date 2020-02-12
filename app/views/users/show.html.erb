@@ -16,9 +16,10 @@
 <ol> 
     <li><%= link_to "Check gyms", gyms_path(@gyms) %></li>
 </ol>
-<%= form_for subscriptions_path(@subscription), :method => "post" do |f|%>
+<%= form_for @subscription do |f|%>
     <%= f.label :gym_id %>
-    <%= f.collection_select :gym_id, Gym.all, :id, :name %>
+    <%= f.collection_select :gym_id, @gyms, :id, :name %>
+    <%= f.hidden_field :user_id, value: @user.id %>
     <%= f.submit "Subscribe" %>
 <% end %>
 
