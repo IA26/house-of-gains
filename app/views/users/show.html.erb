@@ -1,6 +1,24 @@
 <h1>Hello <%= @user.name %>!</h1>
 
 <h2> What would you like to do? </h2>
+
+<div>
+<% if @user.subscriptions %>
+        <h2> You are currently subscribed to: </h2>
+        <% @user.subscriptions.each do |f| %>
+         <%= f.gym.name %>
+        <% end %>
+<% else %>
+    <p> You aren't subscribed to a gym. <p>
+<% end %> 
+</div>
+    
 <ol> 
     <li><%= link_to "Check gyms", gyms_path(@gyms) %></li>
 </ol>
+<%= form_for subscriptions_path(@subscription), :method => "post" do |f|%>
+    <%= f.label :gym_id %>
+    <%= f.collection_select :gym_id, Gym.all, :id, :name %>
+    <%= f.submit "Subscribe" %>
+<% end %>
+
