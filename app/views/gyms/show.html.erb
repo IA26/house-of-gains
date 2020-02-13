@@ -1,3 +1,8 @@
 <h1><%= @gym.name %></h1>
 <h2>Address: <%= @gym.address %></h2>
-<%= link_to "Subscribe to gym" , new_subscription_path(@gym) %>
+<%= form_for @subscription do |f|%>
+    <%= f.label :name_id %>
+    <%= f.collection_select :user_id, @users, :id, :name %>
+    <%= f.hidden_field :gym_id, value: @gym.id %>
+    <%= f.submit "Subscribe" %>
+<% end %>
