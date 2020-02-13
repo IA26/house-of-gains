@@ -9,6 +9,12 @@ class SubscriptionsController < ApplicationController
         redirect_to user_path(@subscription.user)
     end 
 
+    def destroy
+        @subscription = Subscription.find(params[:id])
+        @subscription.destroy
+        redirect_to @user
+    end
+
     private 
     
     def subscription_params

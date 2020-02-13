@@ -23,3 +23,10 @@
     <%= f.submit "Subscribe" %>
 <% end %>
 
+<%= form_for @subscription, :method => :delete do |f| %>
+    <%= f.label :gym_id %>
+    <%= f.collection_select :gym_id, @subscription.gym, :id,:name %>
+    <%= f.hidden_field :user_id, value: @user.id %>
+    <%= f.submit "Delete" %>
+<% end %>
+

@@ -18,6 +18,9 @@ class UsersController < ApplicationController
           end
     end 
     
+    def destroy 
+      @subscription = Subscription.find(params[:id])
+    end 
 
     def show 
         @user = User.find(params[:id])
@@ -30,5 +33,9 @@ class UsersController < ApplicationController
     def user_params
         params.require(:user).permit(:name, :password)
     end 
+
+    def subscription_params
+      params.require(:subscription).permit(:user_id, :gym_id)
+  end
 
 end
