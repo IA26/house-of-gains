@@ -18,10 +18,6 @@ class UsersController < ApplicationController
           end
     end 
     
-    def destroy 
-      @subscription = Subscription.find(params[:id])
-    end 
-
     def show 
         @user = User.find(params[:id])
         @subscription = Subscription.new

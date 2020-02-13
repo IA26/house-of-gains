@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Gym.destroy_all
+
+Gym.create(name: "Gold's")
+Gym.create(name: "YCMA")
+# Gym.create(name: "Planet Fitness", address: Faker::Address.full_address)
+# Gym.create(name: "Blink", address: Faker::Address.full_address)
+# Gym.create(name: "NYSC", address: Faker::Address.full_address)
+# Gym.create(name: "I Love Kickboxing", address: Faker::Address.full_address)
+# Gym.create(name: "Equinox", address: Faker::Address.full_address)
+# Gym.create(name: "Crunch", address: Faker::Address.full_address)
+

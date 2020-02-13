@@ -12,7 +12,7 @@ class SubscriptionsController < ApplicationController
     def destroy
         @subscription = Subscription.find(params[:id])
         @subscription.destroy
-        redirect_to @user
+        redirect_to user_path(@subscription.user)
     end
 
     private 
