@@ -6,13 +6,16 @@ class SubscriptionsController < ApplicationController
 
     def create 
         @subscription = Subscription.create(subscription_params)
-<<<<<<< HEAD
-        redirect_to new_user_path
-=======
         redirect_to user_path(@subscription.user)
->>>>>>> 7700e4f54d6627496fc19759b59eb860871ef78a
     end 
 
+    def destroy
+        @subscription = Subscription.find(subscription_params[:id])
+        @user = @subscription.student 
+        @subscription.destroy
+        redirect_to @user
+    end
+        
     private 
     
     def subscription_params

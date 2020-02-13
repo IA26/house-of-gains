@@ -6,11 +6,7 @@
 <% if @user.subscriptions %>
         <h2> You are currently subscribed to: </h2>
         <% @user.subscriptions.each do |f| %>
-<<<<<<< HEAD
-         <%= f.gym.name %>
-=======
          <li><%= f.gym.name %></li>
->>>>>>> 7700e4f54d6627496fc19759b59eb860871ef78a
         <% end %>
 <% else %>
     <p> You aren't subscribed to a gym. <p>
@@ -20,16 +16,14 @@
 <ol> 
     <li><%= link_to "Check gyms", gyms_path(@gyms) %></li>
 </ol>
-<<<<<<< HEAD
-<%= form_for subscriptions_path(@subscription), :method => "post" do |f|%>
-    <%= f.label :gym_id %>
-    <%= f.collection_select :gym_id, Gym.all, :id, :name %>
-=======
 <%= form_for @subscription do |f|%>
     <%= f.label :gym_id %>
     <%= f.collection_select :gym_id, @gyms, :id, :name %>
     <%= f.hidden_field :user_id, value: @user.id %>
->>>>>>> 7700e4f54d6627496fc19759b59eb860871ef78a
     <%= f.submit "Subscribe" %>
 <% end %>
+
+<br>
+
+<%= button_to "Unsubscribe ", user_path(@user), method: :delete %>
 
