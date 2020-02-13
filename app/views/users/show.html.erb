@@ -13,6 +13,13 @@
 <% end %> 
 </div>
     
+
+<% if flash[:suberror]%>
+     <h2 id= "error"><%= flash[:suberror] %></h2>
+<%end%>
+
+
+
 <ol> 
     <li><%= link_to "Check gyms", gyms_path(@gyms) %></li>
 </ol>
