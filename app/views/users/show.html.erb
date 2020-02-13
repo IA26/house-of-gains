@@ -8,25 +8,9 @@
          <% end %>
 <% else %>
     <p> You aren't subscribed to a gym. <p>
-<% end %> 
-
-    
+<% end %>    
 
 <% if flash[:suberror]%>
      <h2 id= "error"><%= flash[:suberror] %></h2>
 <%end%>
 
-<%= form_for @subscription do |f|%>
-    <%= f.label :gym_id %>
-    <%= f.collection_select :gym_id, @gyms, :id, :name %>
-    <%= f.hidden_field :user_id, value: @user.id %>
-    <%= f.submit "Subscribe" %>
-<% end %>
-
-<br>
-<%@user.subscriptions.each do |subscription|%>
-  <li><%=link_to subscription.gym.name, gym_path(subscription.gym)%></li>
-      <%=button_to "Unsubscribe", subscription_path(subscription), method: "delete"%>
-  <%end%>
-  
-  <br>

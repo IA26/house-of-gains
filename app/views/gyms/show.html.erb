@@ -2,7 +2,7 @@
 <h2>Address: <%= @gym.address %></h2>
 <%= form_for @subscription do |f|%>
     <%= f.label :name_id %>
-    <%= f.collection_select :user_id, @users, :id, :name %>
+    <%= f.hidden_field :user_id, value: @current_user.id %>
     <%= f.hidden_field :gym_id, value: @gym.id %>
     <%= f.submit "Subscribe" %>
 <% end %>

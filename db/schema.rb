@@ -19,6 +19,12 @@ ActiveRecord::Schema.define(version: 2020_02_13_183827) do
     t.string "address"
   end
 
+  create_table "sessions", force: :cascade do |t|
+    t.string "new"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "subscriptions", force: :cascade do |t|
     t.integer "user_id"
     t.integer "gym_id"
