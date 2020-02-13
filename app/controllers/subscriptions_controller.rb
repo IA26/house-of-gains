@@ -6,7 +6,12 @@ class SubscriptionsController < ApplicationController
 
     def create 
         @subscription = Subscription.create(subscription_params)
-        redirect_to user_path(@subscription.user)
+        if @subscription.valid?
+         redirect_to user_path(@subscription.user)
+        else 
+            flash[:suberror] = "You're already subscribed to that gym"
+            redirect_to user_path(@subscription.user)
+        end 
     end 
 
     def destroy

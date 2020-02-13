@@ -30,4 +30,8 @@ class UsersController < ApplicationController
         params.require(:user).permit(:name, :password)
     end 
 
+    def subscription_params
+      params.require(:subscription).permit(:user_id, :gym_id)
+  end
+
 end

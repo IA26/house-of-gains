@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   resources :subscriptions, only: [:new, :create, :destroy]
   resources :gyms, only: [:index, :show, :destroy]
   resources :users, only: [:index, :new, :welcome, :show, :create, :destroy]
