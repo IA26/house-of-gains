@@ -1,33 +1,12 @@
 <h1>Hello <%= @user.name %>!</h1>
-<h2> What would you like to do? </h2>
-
-<% if @user.subscriptions %>
-        <h2> You are currently subscribed to: </h2>
-        <% @user.subscriptions.each do |f| %>
-         <li><%= f.gym.name %></li>
-         <% end %>
-<% else %>
-    <p> You aren't subscribed to a gym. <p>
-<% end %>    
-
 <% if flash[:suberror]%>
      <h2 id= "error"><%= flash[:suberror] %></h2>
 <%end%>
 
+<%@current_user.subscriptions.each do |subscription|%>    
+      <%= subscription.gym.name %>
+      <%= button_to "Unsubscribe", subscription_path(subscription), method: "delete" %>
+      <br>
+ <%end%>
 
 
- <%= form_for @subscription do |f|%>
-     <%= f.label :gym_id %>
-     <%= f.collection_select :gym_id, @gyms, :id, :name %>
-     <%= f.hidden_field :user_id, value: @user.id %>
-     <%= f.submit "Subscribe" %>
- <% end %>
-<br>
-<br>
-<br>
-<%@user.subscriptions.each do |subscription|%>
-    <li><%=link_to subscription.gym.name, gym_path(subscription.gym)%></li>
-    <%=button_to "Unsubscribe", subscription_path(subscription), method: "delete"%>
-    
-<%end%>
-<br>
