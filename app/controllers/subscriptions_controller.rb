@@ -10,12 +10,12 @@ class SubscriptionsController < ApplicationController
     end 
 
     def destroy
-        @subscription = Subscription.find(subscription_params[:id])
-        @user = @subscription.student 
+        @subscription = Subscription.find(params[:id])
         @subscription.destroy
-        redirect_to @user
-    end
+        redirect_to user_path(@user)
         
+    end
+
     private 
     
     def subscription_params

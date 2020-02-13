@@ -25,5 +25,9 @@
 
 <br>
 
-<%= button_to "Unsubscribe ", user_path(@user), method: :delete %>
-
+<%@user.subscriptions.each do |subscription|%>
+  <li><%=link_to subscription.gym.name, gym_path(subscription.gym)%></li>
+      <%=button_to "Unsubscribe", subscription_path(subscription), method: "delete"%>
+  <%end%>
+  
+  <br>
