@@ -1,5 +1,5 @@
 class SubscriptionsController < ApplicationController
-
+    before_action :setup_auth_stuff, only: [:destroy, :new]
     def new 
         @subscription = Subscription.new
     end 
