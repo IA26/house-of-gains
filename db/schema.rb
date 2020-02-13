@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_13_203703) do
+ActiveRecord::Schema.define(version: 2020_02_13_205624) do
 
   create_table "gyms", force: :cascade do |t|
     t.string "name"
@@ -33,11 +33,10 @@ ActiveRecord::Schema.define(version: 2020_02_13_203703) do
   end
 
   create_table "tiers", force: :cascade do |t|
-    t.string "bronze"
-    t.string "silver"
-    t.string "gold"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "subscription_id"
+    t.string "package"
   end
 
   create_table "users", force: :cascade do |t|

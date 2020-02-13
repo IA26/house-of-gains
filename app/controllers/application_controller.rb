@@ -22,4 +22,9 @@ class ApplicationController < ActionController::Base
     def logged_in?
       !!current_user
     end
+
+    def authorize 
+      redirect_to login_url, alert: "Not authorized" if current_user.nil?
+    end 
+
 end
