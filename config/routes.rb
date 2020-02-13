@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :tiers
   get 'signup', :to => 'users#new'
   get 'login', :to => 'sessions#new' 
   get 'logout', :to => 'sessions#destroy'
