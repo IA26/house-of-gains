@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+Tier.destroy_all 
 Gym.destroy_all
 
 Gym.create(name: "Gold's", address: Faker::Address.full_address)
@@ -17,3 +17,6 @@ Gym.create(name: "I Love Kickboxing", address: Faker::Address.full_address)
 Gym.create(name: "Equinox", address: Faker::Address.full_address)
 Gym.create(name: "Crunch", address: Faker::Address.full_address)
 
+Tier.create(package: "BRONZE")
+Tier.create(package: "SILVER")
+Tier.create(package: "GOLD")
