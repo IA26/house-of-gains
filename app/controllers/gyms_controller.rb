@@ -5,6 +5,8 @@ class GymsController < ApplicationController
     end
 
     def show 
+        @tier = Tier.new
+        @tiers = Tier.all
         @gym = Gym.find(params[:id])
         @users = User.all
         @subscription = Subscription.new

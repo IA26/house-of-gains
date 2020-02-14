@@ -9,7 +9,7 @@ class TiersController < ApplicationController
     end 
 
     def create 
-        @tier = Tier.create(tier_params)
+        @tier = Tier.create(params[:package], params[:subscription_id])
         if @tier.valid?
             redirect_to user_path(@tier.subscription)
         else 
@@ -27,6 +27,6 @@ class TiersController < ApplicationController
     private 
 
     def tier_params 
-        params.require(:person).permit(:name, :subscription_id)
+        params.require(:tier).permit(:package, :subscription_id)
     end 
 end

@@ -1,7 +1,9 @@
 <h1><%= @gym.name %></h1>
 <h2>Address: <%= @gym.address %></h2>
 
-    <%= form_for @subscription do |f|%>
+    <%= form_for @tier do |f|%>
+    <%= f.label :tier_id %>
+    <%= f.collection_select :tier_id, @tiers, :id, :package %>
     <%= f.hidden_field :user_id, value: @current_user.id %>
     <%= f.hidden_field :gym_id, value: @gym.id %>
     <%= f.submit "Subscribe" %>
