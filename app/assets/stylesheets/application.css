@@ -13,10 +13,4 @@
  *= require_tree .
  *= require_self
  */
- *= require main
-
- #error {
-    background-color: red;
-    color: black;
-    text-align: center;
- }
+ = require main

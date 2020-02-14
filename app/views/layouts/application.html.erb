@@ -3,14 +3,14 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Bulma!</title>
+    <title>Welcome to the House of Gains!</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   </head>
   <body>
   <section class="section">
     <div class="container">
-      <h1 class="title">
+      <h1 class="title", style="text-align:center;">
         House Of Gains
       </h1>
       <p class="subtitle">
@@ -25,6 +25,7 @@
 <html>
   <head>
     <title>Houseofgains</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -33,13 +34,19 @@
   <body>
   <% if current_user %>
     Logged in as <%= current_user.name %>.
-    <p id="links"><%= link_to "Check all gyms", root_url %><p>
-    <p id="links"><%= link_to "View Profile", user_path(current_user[:id]) %><p>
-    <p> <%= link_to "Edit Profile", edit_user_path(current_user) %>
-    <p id="links"><%= link_to "Log out", session_path("current"), method: "delete" %><p>
+    <br>
+    <%= link_to "Check All Gyms", root_url %>
+    <%= link_to "View Profile", user_path(current_user[:id]) %>
+    <%= link_to "Edit Profile", edit_user_path(current_user) %>
+    <%= link_to "Log out", session_path("current"), method: "delete" %>
     <% else %> 
-      <%= link_to "Sign Up", signup_path %>
-      <%= link_to "Log in", login_path %>
+    <%= link_to "Sign Up", signup_path %>    
+    <%= link_to "Log in", login_path %>
+    <% end %>
+    <br>
+
+    <% flash.each do |name, msg| %>
+     <div id='flash'><%= content_tag :div, msg, id: "flash_#{name}" %> </div>
     <% end %>
     <%= yield %>
   </body>
