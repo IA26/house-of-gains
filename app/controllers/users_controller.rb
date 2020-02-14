@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :authorize, only: [:show]
+  before_action :authorize, only: [:show, :update]
 
     def index 
     end 
@@ -27,6 +27,16 @@ class UsersController < ApplicationController
         @gyms = Gym.all
     end 
 
+    def edit 
+      @user = current_user
+    end
+
+    def update 
+      @user = current_user
+      @user.update_attributes(edit_params)
+      redirect_to user_path(@user)
+    end 
+
     private 
 
     def user_params
@@ -35,6 +45,10 @@ class UsersController < ApplicationController
 
     def subscription_params
       params.require(:subscription).permit(:user_id, :gym_id)
-  end
+    end
+
+    def edit_params
+      params.require(:user).permit(:name)
+    end
 
 end
