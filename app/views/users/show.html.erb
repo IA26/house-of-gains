@@ -4,6 +4,7 @@
 <%end%>
 
 <% @current_user.subscriptions.each do |subscription| %>    
+      You're subscribed to:
       <%= subscription.gym.name %>
       <%= button_to "Unsubscribe", subscription_path(subscription), method: "delete" %>
       <br>
